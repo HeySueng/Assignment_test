@@ -3,7 +3,7 @@ let app = express();
 let bodyParser = require('body-parser');
 let session = require('express-session');
 
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000*1000 }}));
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000*1000 }, resave: true, saveUninitialized: true}));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
@@ -166,4 +166,4 @@ app.delete('/users/:userId', auth, (req, res) => {
 
 // 사용자 추가 시에 admin 여부도 추가해야 함
 
-let server = app.listen(80);
+let server = app.listen(23013);
